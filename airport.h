@@ -39,8 +39,8 @@ public:
     ~Airport();
 private:
     int landed, tookOff,
-            avgWaitL, avgWaitT,
-                maxWaitL, maxWaitT;
+        avgWaitL, avgWaitT,
+        maxWaitL, maxWaitT;
     int allFree;
     void freeMinRunAway();
     void freeRunAway(int);
