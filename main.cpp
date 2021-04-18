@@ -19,10 +19,11 @@ void sort(int* array, int size){
 
 int main()
 {
-    cout << "Airport Simulation\n";
     int numberOfRunAways;
+    cout << "Airport Simulation\n";
     cout << "Number of runaways: ";
     cin >> numberOfRunAways;
+
     Airport airport(numberOfRunAways);
     int landing, takeoff;
     int simulation_time = airport.getSimulationTime();
@@ -42,10 +43,12 @@ int main()
                     airport.addInLanding(Aircraft(i, runAways[k]));
                 delete runAways;
             }
+
             if(takeoff){
                 runAways = new int[takeoff];
                 for(int k = 0; k < takeoff; k++)
                     runAways[k] = rand() % simulation_time + 1;
+
                 sort(runAways, takeoff);
                 if(landing)
                     for(int k = 0; k < takeoff; k++)
