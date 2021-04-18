@@ -46,10 +46,12 @@ bool LQueue<T>::push(T const& x) {
 	QueueElement<T>* p = new QueueElement<T>(x);
 	if (!p)
 		return false;
+
 	if (empty())
 		front = p;
 	else
 		back->next = p;
+
 	back = p;
 	length++;
 	return true;
@@ -59,10 +61,12 @@ template <typename T>
 bool LQueue<T>::pop(T& x) {
 	if (!head(x))
 		return false;
+
 	QueueElement<T>* p = front;
 	front = front->next;
 	if (front == NULL)
 		back = NULL;
+
 	delete p;
 	length--;
 	return true;
@@ -80,6 +84,7 @@ template <typename T>
 bool LQueue<T>::head(T& x) const {
 	if (empty())
 		return false;
+
 	x = front->data;
 	return true;
 }
@@ -95,9 +100,7 @@ template <typename T>
 void LQueue<T>::copy(LQueue<T> const& q) {
 	QueueElement<T>* toCopy = q.front;
 	length = q.length;
-
-	for(QueueElement<T>* toCopy = q.front;
-			toCopy; toCopy = toCopy->next)
+	for(QueueElement<T>* toCopy = q.front; toCopy; toCopy = toCopy->next)
 		push(toCopy->data);
 }
 
